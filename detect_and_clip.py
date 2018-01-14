@@ -74,7 +74,7 @@ if __name__ == '__main__':
     detector = TOD()
    
     filepath = r'D:\Anaconda\mydetector\images\dataset'
-    savepath = r'D:\Anaconda\mydetector\images\dataset\crop_image'
+    savepath = r'D:\Anaconda\mydetector\images\dataset\clip_image'
     dir_list = os.listdir(filepath)
     dir_list.sort()
     
@@ -130,8 +130,8 @@ if __name__ == '__main__':
             ymax = int(shape[0] * box[2])
             xmax = int(shape[1] * box[3])
             print(xmin, ymin, xmax, ymax)
-            crop_img = image[ymin:ymax, xmin:xmax]
-            cv2.imwrite('images/dataset/crop_image/' + str(img_index) + '/' + str(k) + '.jpg', crop_img)
+            clip_img = image[ymin:ymax, xmin:xmax]
+            cv2.imwrite('images/dataset/clip_image/' + str(img_index) + '/' + str(k) + '.jpg', clip_img)
             k += 1
             
         img_index += 1
