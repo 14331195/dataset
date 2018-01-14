@@ -1,0 +1,45 @@
+生成数据
+python create_pet_tf_record.py --data_dir=dataset/test --output_dir=dataset/test
+
+训练模型
+python train.py 
+--train_dir=D:\dataset\TFrecord\train 
+--pipeline_config_path=D:\dataset\TFrecord\models\faster_rcnn_inception_resnet_v2_atrous_coco.config
+
+
+打开可视化工具
+D:\Anaconda\envs\tensorflow\Scripts\tensorboard.exe --logdir=D:\Anaconda\mydetector\TFrecord\pet_train
+
+安装bazel
+http://blog.csdn.net/sunxinyu/article/details/76735382
+
+http://DESKTOP-D894DLU:6006
+
+模型so文件和jar包下载地址
+https://ci.tensorflow.org/view/Nightly/job/nightly-android/
+
+模型移植安卓
+http://blog.csdn.net/cxq234843654/article/details/71171293
+
+模型导出pb文件
+python export_inference_graph.py 
+--input_type image_tensor 
+--pipeline_config_path detector.config 
+--trained_checkpoint_prefix Tfrecord/model.ckpt-1021 
+--output_directory TFrecord/output2
+
+tensorflow移植
+http://m.blog.csdn.net/u010122972/article/details/77072649	
+
+图像分类命令
+    python retrain.py \  
+      --bottleneck_dir=bottlenecks \  
+      --how_many_training_steps=30000 \  
+      --model_dir=inception \  
+      --summaries_dir=training_summaries/basic \  
+      --output_graph=retrained_graph.pb \  
+      --output_labels=retrained_labels.txt \  
+      --image_dir=images/dataset/crop_image
+
+
+Op type not registered 'NonMaxSuppressionV2'

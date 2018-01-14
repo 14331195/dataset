@@ -1,0 +1,42 @@
+目标检测api安装
+利用Anaconda安装tensorflow
+下载Protobuf，然后编译
+
+
+模型训练
+http://www.cnblogs.com/mar-q/p/7579263.html
+http://blog.csdn.net/c2a2o2/article/details/78447784
+http://www.cnblogs.com/qcloud1001/p/7677661.html
+
+
+FATAL EXCEPTION: main
+                                                            Process: com.detector, PID: 7842
+                                                            java.lang.RuntimeException: Unable to start activity ComponentInfo{com.detector/com.detector.MainActivity}: org.tensorflow.TensorFlowException: Op type not registered 'NonMaxSuppressionV2'
+                                                                at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2724)
+                                                                at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2785)
+                                                                at android.app.ActivityThread.-wrap12(ActivityThread.java)
+                                                                at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1532)
+                                                                at android.os.Handler.dispatchMessage(Handler.java:102)
+                                                                at android.os.Looper.loop(Looper.java:163)
+                                                                at android.app.ActivityThread.main(ActivityThread.java:6315)
+                                                                at java.lang.reflect.Method.invoke(Native Method)
+                                                                at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:877)
+                                                                at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:767)
+                                                             Caused by: org.tensorflow.TensorFlowException: Op type not registered 'NonMaxSuppressionV2'
+                                                                at org.tensorflow.Graph.importGraphDef(Native Method)
+                                                                at org.tensorflow.Graph.importGraphDef(Graph.java:118)
+                                                                at org.tensorflow.Graph.importGraphDef(Graph.java:102)
+                                                                at org.tensorflow.contrib.android.TensorFlowInferenceInterface.loadGraph(TensorFlowInferenceInterface.java:390)
+                                                                at org.tensorflow.contrib.android.TensorFlowInferenceInterface.<init>(TensorFlowInferenceInterface.java:96)
+                                                                at com.detector.tensorflow.TensorFlowObjectDetectionAPIModel.create(TensorFlowObjectDetectionAPIModel.java:73)
+                                                                at com.detector.MainActivity.onCreate(MainActivity.java:85)
+                                                                at android.app.Activity.performCreate(Activity.java:6847)
+                                                                at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1119)
+                                                                at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2677)
+                                                                at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2785)?
+                                                                at android.app.ActivityThread.-wrap12(ActivityThread.java)?
+                                                                at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1532)?
+                                                                at android.os.Handler.dispatchMessage(Handler.java:102)?
+                                                                at android.os.Looper.loop(Looper.java:163)?
+                                                                at android.app.ActivityThread.main(ActivityThread.java:6315)?
+                                                                at java.lang.reflect.Method.invoke(Native Method)?
