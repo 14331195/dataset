@@ -3,6 +3,8 @@
 Created on Tue Nov  7 15:14:29 2017
 
 @author: ljm
+
+此文件用于检测 提取关键区域模型 的检测效果
 """
 
 import cv2

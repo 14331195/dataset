@@ -3,6 +3,8 @@
 Created on Tue Nov  7 15:14:29 2017
 
 @author: ljm
+
+此文件用于图像分类，对输入图像进行分类，并给出分类结果
 """
 import os, sys
 import cv2

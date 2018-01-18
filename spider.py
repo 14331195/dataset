@@ -1,5 +1,11 @@
 #coding=utf-8
 
+'''
+此文件用于爬取指定种类空调的图片数据
+@param：productId对应空调品种的ID
+如https://item.jd.com/12358424174.html#none，12358424174为productId
+'''
+
 import urllib2
 import re
 import os
@@ -87,7 +93,7 @@ def pullImages(productId) :
 			buf = req.read()
 			f.write(buf)
 			i = i + 1
-		if i < 400 and k == pageCount - 1:
+		if i < 400 and k == pageCount - 1: #爬取的图片不满400张时继续爬下一页
 			pageCount += 1
 		k += 1
 

@@ -1,5 +1,12 @@
 #coding=utf-8
 
+'''
+此文件用于爬取指定品牌空调的图片数据，最多爬取该品牌的20个种类
+@param：target为空调品牌链接
+@param：productId为该品牌空调某一种类的ID
+
+'''
+
 import urllib2
 import re
 import os

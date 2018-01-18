@@ -3,6 +3,8 @@
 Created on Tue Nov  7 15:14:29 2017
 
 @author: ljm
+
+该文件用于裁剪出图片数据中的空调部分
 """
 import os, sys
 import cv2
@@ -14,8 +16,8 @@ from object_detection.utils import visualization_utils as vis_util
 
 class TOD(object) :
     def __init__(self):
-        self.PATH_TO_CKPT = r'D:\Anaconda\mydetector\TFrecord\output2\frozen_inference_graph.pb'
-        self.PATH_TO_LABELS = r'D:\Anaconda\mydetector\dataset\pet_label_map.pbtxt'
+        self.PATH_TO_CKPT = r'D:\Anaconda\mydetector\TFrecord\output2\frozen_inference_graph.pb' #已经训练好的识别图片中空调的模型路径
+        self.PATH_TO_LABELS = r'D:\Anaconda\mydetector\dataset\pet_label_map.pbtxt' #训练空调模型时的标签文件
         self.NUM_CLASSES = 2
         self.detection_graph = self.load_model()
         self.category_index = self.load_label_map()
@@ -58,7 +60,7 @@ class TOD(object) :
                         feed_dict={image_tensor:image_np_extended})
                 
                 
-                # Visualization of the results of a detection.
+                # 用于可视化检测结果.
 #                vis_util.visualize_boxes_and_labels_on_image_array(
 #                        image, np.squeeze(boxes), np.squeeze(classes).astype(np.int32),
 #                        np.squeeze(scores), self.category_index, 
@@ -73,8 +75,8 @@ if __name__ == '__main__':
 #    cv2.waitKey(0)
     detector = TOD()
    
-    filepath = r'D:\Anaconda\mydetector\images\dataset'
-    savepath = r'D:\Anaconda\mydetector\images\dataset\clip_image'
+    filepath = r'D:\Anaconda\mydetector\images\dataset' #待裁剪的图片数据路径
+    savepath = r'D:\Anaconda\mydetector\images\dataset\clip_image' #裁剪后结果保存路径
     dir_list = os.listdir(filepath)
     dir_list.sort()
     
@@ -92,7 +94,7 @@ if __name__ == '__main__':
     i = 0
     img_index = -1
     for img_dir in dir_list:    
-        if i <= 24:
+        if i <= 55:     #已经裁剪好的目录直接跳过
             i += 1
             img_index += 1
             continue
@@ -130,8 +132,8 @@ if __name__ == '__main__':
             ymax = int(shape[0] * box[2])
             xmax = int(shape[1] * box[3])
             print(xmin, ymin, xmax, ymax)
-            clip_img = image[ymin:ymax, xmin:xmax]
-            cv2.imwrite('images/dataset/clip_image/' + str(img_index) + '/' + str(k) + '.jpg', clip_img)
+            crop_img = image[ymin:ymax, xmin:xmax]
+            cv2.imwrite('images/dataset/clip_image/' + str(img_index) + '/' + str(k) + '.jpg', crop_img)
             k += 1
             
         img_index += 1
