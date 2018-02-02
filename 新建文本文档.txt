@@ -7,6 +7,7 @@
 http://www.cnblogs.com/mar-q/p/7579263.html
 http://blog.csdn.net/c2a2o2/article/details/78447784
 http://www.cnblogs.com/qcloud1001/p/7677661.html
+http://blog.csdn.net/xiji321/article/details/77163550
 
 
 FATAL EXCEPTION: main
